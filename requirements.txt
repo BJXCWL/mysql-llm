@@ -1,0 +1,4 @@
+pymysql>=1.0.2
+pandas>=1.5.3
+openai>=0.27.0
+python-dotenv>=0.21.0
