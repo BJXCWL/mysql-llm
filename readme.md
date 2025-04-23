@@ -1,6 +1,7 @@
 # 文本生成 SQL
 
 ## 项目简介
+
 一个基于 MySQL + 大语言模型（LLM）的 SQL 自动生成与执行工具，支持：
 
 - **数据库模式自动读取**：动态获取当前 MySQL 实例中所有表及字段信息
@@ -9,6 +10,7 @@
 - **标签化 SQL 提取**：支持在输入中使用 `<sql>…</sql>` 包裹多句 SQL 片段，自动提取并执行
 
 ## 主要功能
+
 1. `MySQLClient`
    - 初始化、关闭 MySQL 连接
    - 获取数据库所有表及列的模式信息 (`get_schema_info`)
@@ -20,6 +22,7 @@
    - 组合以上两者：读取模式、生成 SQL、执行查询、打印输出
 
 ## 仓库结构
+
 ```
 ├── MySQLClient.py     # MySQLClient 类实现
 ├── SQLGenerator.py    # 封装 OpenAI 转 SQL 的类
@@ -29,7 +32,9 @@
 ```
 
 ## 环境配置
+
 1. 克隆代码并创建虚拟环境：
+
    ```bash
    git clone <repo_url>
    cd <repo_dir>
@@ -37,11 +42,15 @@
    source venv/bin/activate   # Linux/macOS
    venv\\Scripts\\activate  # Windows
    ```
+
 2. 安装依赖：
+
    ```bash
    pip install -r requirements.txt
    ```
+
 3. 配置环境变量（建议在项目根目录创建 `.env`）：
+
    ```ini
    # MySQL 配置
    MYSQL_HOST=localhost
@@ -56,21 +65,27 @@
    ```
 
 ## 快速开始
+
 在 `.env` 配置完毕后，直接运行：
+
 ```bash
 python main.py
 ```
+
 脚本会：
+
 1. 连接 MySQL 并打印所有表结构
 2. 以示例自然语言查询生成 SQL
 3. 执行生成的 SQL 并打印查询结果
 
 若要自定义查询内容，可编辑 `main.py` 中的
+
 ```python
 natural_query = "你希望执行的自然语言查询"
 ```
 
 ## 自定义调用示例
+
 ```python
 from MySQLClient import MySQLClient
 from SQLGenerator import SQLGenerator
@@ -100,6 +115,7 @@ db.close()
 ```
 
 ## 依赖
+
 - Python ≥ 3.8
 - pymysql
 - pandas
@@ -109,7 +125,6 @@ db.close()
 可通过 `pip install -r requirements.txt` 一键安装。
 
 ## 参考
- - Anthropics Cookbook: https://github.com/anthropics/anthropic-cookbook/tree/main/skills/text_to_sql
- - OpenAI API 文档
 
-
+- Anthropics Cookbook: <https://github.com/anthropics/anthropic-cookbook/tree/main/skills/text_to_sql>
+- OpenAI API 文档
